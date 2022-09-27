@@ -1,0 +1,6 @@
+icon: https://www.mediafire.com/convkey/1986/vouwk4qmuzriy8c7g.jpg?size_id=5
+deploy:
+  - kubectl apply -f plantuml-replicaset.yaml
+  - kubectl apply -f plantuml-service.yaml
+devs:
+  - okteto.yml
