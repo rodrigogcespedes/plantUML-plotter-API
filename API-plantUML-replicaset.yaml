@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: API-plantUML
+  labels:
+    app: API-plantUML
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: API-plantUML
+  template:
+    metadata:
+      labels:
+        app: API-plantUML
+    spec:
+      containers:
+      - name: API-plantUML
+        image: rodrigogcespedes/plantuml-api:0.7
+        livenessProbe:
+          tcpSocket:
+            port: 9500
+        ports:
+        - containerPort: 9500

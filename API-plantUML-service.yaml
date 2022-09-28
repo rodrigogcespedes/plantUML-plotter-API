@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: API-plantUML
+  annotations:
+    dev.okteto.com/auto-ingress: "true"
+spec:
+  ports:
+  - port: 9500
+    protocol: TCP
+  selector:
+    app: API-plantUML

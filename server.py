@@ -10,11 +10,13 @@ class Text(BaseModel):
 app = FastAPI()
 
 
-@app.post("/{imageFormat}")
+@app.post("/{imageFormat}") #/png || /svg || /txt
 def load(imageFormat: str, body: Text):
-    url = "http://plantuml-rodrigogcespedes.cloud.okteto.net/"
-    response = requests.post(url + "form", body)
+    url = "https://plantuml-rodrigogcespedes.cloud.okteto.net/"
+    response = requests.post(url+"form", {"text": body.content})
     pInicial = response.text.find(url + imageFormat)
     pFinal = response.text.find("\"", pInicial)
     image = response.text[pInicial:pFinal]
     return {"result": image}
+
+#https://API-plantUML-rodrigogcespedes.cloud.okteto.net/docs para acceder a la documentacion del endpoint

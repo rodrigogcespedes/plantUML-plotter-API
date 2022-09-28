@@ -8,5 +8,6 @@ sync:
 - .:/usr/src/app
 forward:
 - 9988:8080
+- 9500:9500
 reverse:
 - 9000:9000
