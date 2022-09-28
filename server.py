@@ -19,4 +19,4 @@ def load(imageFormat: str, body: Text):
     image = response.text[pInicial:pFinal]
     return {"result": image}
 
-#https://API-plantUML-rodrigogcespedes.cloud.okteto.net/docs para acceder a la documentacion del endpoint
+#https://api-rodrigogcespedes.cloud.okteto.net/docs para acceder a la documentacion del endpoint
