@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: API-plantUML
+  name: api
   labels:
-    app: API-plantUML
+    app: api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: API-plantUML
+      app: api
   template:
     metadata:
       labels:
-        app: API-plantUML
+        app: api
     spec:
       containers:
-      - name: API-plantUML
+      - name: api
         image: rodrigogcespedes/plantuml-api:0.7
         livenessProbe:
           tcpSocket:
