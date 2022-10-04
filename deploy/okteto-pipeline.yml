@@ -4,5 +4,7 @@ deploy:
   - kubectl apply -f plantuml-service.yaml
   - kubectl apply -f api-replicaset.yaml
   - kubectl apply -f api-service.yaml
+  - kubectl apply -f app2yaml-replicaset.yaml
+  - kubectl apply -f app2yaml-service.yaml
 devs:
   - okteto.yml

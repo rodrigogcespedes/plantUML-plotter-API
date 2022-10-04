@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app2yaml
+  labels:
+    app: app2yaml
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app2yaml
+  template:
+    metadata:
+      labels:
+        app: app2yaml
+    spec:
+      containers:
+      - name: app2yaml
+        image: rodrigogcespedes/plantuml-app2yaml:0.1
+        livenessProbe:
+          tcpSocket:
+            port: 9550
+        ports:
+        - containerPort: 9550
