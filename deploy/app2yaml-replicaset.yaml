@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: app2yaml
-        image: rodrigogcespedes/plantuml-app2yaml:0.1
+        image: rodrigogcespedes/app2yaml:0.1
         livenessProbe:
           tcpSocket:
             port: 9550
