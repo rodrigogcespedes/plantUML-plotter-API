@@ -1,0 +1,14 @@
+name: junkode-data.base
+autocreate: true
+image: okteto/php:7
+command: bash
+volumes:
+- /root/.composer/cache
+sync:
+- .:/usr/src/app
+forward:
+- 9988:8080
+- 9500:9500
+- 9550:9550
+reverse:
+- 9000:9000
