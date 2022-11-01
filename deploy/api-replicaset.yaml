@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: api
-        image: rodrigogcespedes/plantuml-api:0.7
+        image: rodrigogcespedes/plantuml-api:0.8
         livenessProbe:
           tcpSocket:
             port: 9500
