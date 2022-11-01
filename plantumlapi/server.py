@@ -30,35 +30,56 @@ def load(imageFormat: str, body: Text):
 # https://api-rodrigogcespedes.cloud.okteto.net/docs para acceder a la documentacion del endpoint
 
 
+# @app.post("/bytes/{imageFormat}")  # /png || /svg || /txt
+# def load(imageFormat: str, body: Text):
+#     url = "https://plantuml-rodrigogcespedes.cloud.okteto.net/"
+#     response = requests.post(url + "form", {"text": body.content})
+#
+#     pInicial = response.text.find(url + imageFormat)
+#     pFinal = response.text.find("\"", pInicial)
+#     image = response.text[pInicial:pFinal]
+#
+#     r = requests.get(image)
+#     rawimg = ""
+#     abytes = ""
+#     print("paso1")
+#     if r.status_code in range(200, 299):
+#         print("paso2")
+#         rawimg = BytesIO(r.content)
+#         print("paso3")
+#         abytes = rawimg.getvalue()
+#         print(abytes)
+#         print(type(abytes))
+#     else:
+#         print(f'Something went wrong. Response: {r.status_code}')
+#         abytes= "PlantUML Error"
+#
+#     cadena = abytes.decode('utf-8','ignore')
+#     #cadena = str(abytes, 'UTF-32')
+#
+#     print("paso4")
+#
+#     return {"result": cadena}
+
+# python -m uvicorn server:app --port 9500 --reload
+
 @app.post("/bytes/{imageFormat}")  # /png || /svg || /txt
 def load(imageFormat: str, body: Text):
-    url = "https://plantuml-rodrigogcespedes.cloud.okteto.net/"
-    response = requests.post(url + "form", {"text": body.content})
-
-    pInicial = response.text.find(url + imageFormat)
-    pFinal = response.text.find("\"", pInicial)
-    image = response.text[pInicial:pFinal]
-
-    r = requests.get(image)
+    r = requests.get("https://plantuml-rodrigogcespedes.cloud.okteto.net/" + imageFormat + "/" + body.content)
     rawimg = ""
     abytes = ""
-    print("paso1")
     if r.status_code in range(200, 299):
-        print("paso2")
         rawimg = BytesIO(r.content)
-        print("paso3")
         abytes = rawimg.getvalue()
-        print(abytes)
-        print(type(abytes))
+        # print(abytes)
+        # print(type(abytes))
     else:
         print(f'Something went wrong. Response: {r.status_code}')
-        abytes= "PlantUML Error"
+        abytes = "PlantUML Error"
 
-    cadena = abytes.decode('utf-8','ignore')
-    #cadena = str(abytes, 'UTF-32')
+    cadena = abytes.decode('utf-8', 'ignore')
+    # cadena = str(abytes, 'UTF-32')
 
     print("paso4")
 
     return {"result": cadena}
-
-# python -m uvicorn server:app --port 9500 --reload
