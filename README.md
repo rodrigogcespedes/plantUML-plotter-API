@@ -12,7 +12,7 @@ Generate the diagrams sending a POST request to:
 * ```{Instance-URL}/png``` in order to get a png image or
 * ```{Instance-URL}/svg``` in order to get a svg image,
 
-Where Instance-URL is ```localhost:9500``` when runing local and ```https://api-rodrigogcespedes.cloud.okteto.net``` when using the Junkode instance.
+Where Instance-URL is ```localhost:9500``` when runing local.
 
 Any of them with the body:
 ```json
@@ -27,7 +27,7 @@ In order to ger a response like:
 }
 ```
 
-Further documentation of the endpoints can be accessed in ```https://api-rodrigogcespedes.cloud.okteto.net/docs```
+Further documentation of the endpoints can be accessed in ```/docs```
 
 Further documentation of PlantUML can found in 
 
@@ -45,7 +45,7 @@ Run locally using ```docker run -p 9550:9550 -it -d --rm rodrigogcespedes/app2ya
 Convert properties files by sending a POST request to:
 ```{Instance-URL}/png```
 
-Where Instance-URL is ```localhost:9550``` when runing local and ```https://app2yaml-rodrigogcespedes.cloud.okteto.net``` when using the Junkode instance.
+Where Instance-URL is ```localhost:9550``` when runing local.
 
 Any of them with the body:
 ```json
@@ -60,6 +60,6 @@ In order to ger a response like:
 }
 ```
 
-Further documentation of the endpoints can be accessed in ```https://api-rodrigogcespedes.cloud.okteto.net/docs```
+Further documentation of the endpoints can be accessed in ```/docs```
 
 Service created for Junkode, 2022.
